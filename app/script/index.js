@@ -81,6 +81,9 @@ var KEY     = { ESC: 27, SPACE: 32, LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40 },
 
 // Create the variables that will most likely reset for every games
 
+// Focus game window
+canvas.focus()
+
 var height  = canvas.scrollHeight,
     width   = canvas.scrollWidth
     uheight = ucanvas.scrollHeight,
