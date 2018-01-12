@@ -345,10 +345,6 @@ function dropPiece() {
   eachblock(current.type,current.x,current.y,current.dir,function(x, y) {
     setBlock(x, y, type)
     setCurrentPiece(next)
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
   })
 }
 
