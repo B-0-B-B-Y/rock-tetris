@@ -1,0 +1,25 @@
+{
+  "name": "rock-tetris",
+  "version": "1.0.0",
+  "description": "A rock 'n' roll rebirth of one of the legendary games, tetris",
+  "main": "index.js",
+  "scripts": {
+    "test": "console.log('no test');"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/B-0-B-B-Y/rock-tetris.git"
+  },
+  "keywords": [
+    "tetris",
+    "rock",
+    "roll",
+    "electron"
+  ],
+  "author": "Bob Naydenov, Dan Foad <contact@danfoad.co.uk>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/B-0-B-B-Y/rock-tetris/issues"
+  },
+  "homepage": "https://github.com/B-0-B-B-Y/rock-tetris#readme"
+}
