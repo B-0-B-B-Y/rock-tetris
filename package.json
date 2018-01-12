@@ -4,7 +4,8 @@
   "description": "A rock 'n' roll rebirth of one of the legendary games, tetris",
   "main": "./main.js",
   "scripts": {
-    "test": "console.log('no test');"
+    "test": "console.log('no test');",
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,8 @@
     "url": "https://github.com/B-0-B-B-Y/rock-tetris/issues"
   },
   "homepage": "https://github.com/B-0-B-B-Y/rock-tetris#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "electron": "^1.7.10"
   }
 }
