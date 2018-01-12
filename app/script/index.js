@@ -90,6 +90,7 @@ var dx = width / nx, dy = height / ny,        // pixel size of a single tetris b
     score,         // the current score
     rows,          // number of completed rows in the current game
     step          // how long before current piece drops by 1 row
+    pace = 2;
 
 // Define get and set methods to variables
 
@@ -182,7 +183,7 @@ function update(idt) {
   if (playing) {
     handle(actions.shift())
     dt = dt + idt
-    if (dt > (step * 1.5)) {
+    if (dt > (step * pace)) {
       dt = dt = step
       drop()
     }
@@ -286,6 +287,7 @@ function draw() {
   ctx.save()
   ctx.lineWidth = 1
   ctx.translate(0.5, 0.5)
+  drawRows()
   drawCourt()
   drawNext()
   drawScore()
@@ -306,6 +308,15 @@ function drawCourt() {
   ctx.rect(0, 0, nx*dx - 1, ny*dy -1)
   ctx.stroke()   // NB: This is the court boundary
   invalid.court = false
+  }
+}
+
+function drawRows() {
+  for (var y = 0; y < ny; y+=dy) {
+    for (var x = 0; x < nx; x+=dx) {
+      ctx.rect(x, y, x+dx, y+dy)
+      ctx.stroke()
+    }
   }
 }
 
