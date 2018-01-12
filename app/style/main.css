@@ -21,6 +21,7 @@ body {
     display: flex;
     flex-flow: column nowrap;
     font-size: 62.5%;
+    background-color: black;
 }
 img {
     pointer-events: none;
@@ -85,9 +86,10 @@ p {
     flex-flow: column nowrap;
     align-items: stretch;
     background-image: url('../assets/img/wallpapers/wallpaper_2.jpg');
-    background-size: cover;
-    background-position: 50% 50%;
-    background-repeat: none;
+    background-size: contain;
+    background-position: 50% 90%;
+    background-repeat: no-repeat;
+    filter: brightness(80%);
 }
 
 /**** GAME WINDOW ****/
@@ -98,7 +100,7 @@ p {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     background: #000000;
 }
 .game-title img {
