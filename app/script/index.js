@@ -97,7 +97,7 @@ var dx = width / nx, dy = width / nx,        // pixel size of a single tetris bl
 
 ny = dy * 20
 
-console.log(width / dx)
+console.log(width)
 
 // Define get and set methods to variables
 
