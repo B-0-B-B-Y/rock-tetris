@@ -1,5 +1,5 @@
 const electron = require('electron')
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 
 require('electron-reload')(__dirname)
@@ -18,4 +18,16 @@ app.on('ready', () => {
     win.loadURL('file://' + __dirname + '/app/index.html')
 
     win.webContents.openDevTools()
+})
+
+ipcMain.on('minimise', (event, arg) => {
+  win.minimize()
+})
+
+ipcMain.on('maximise', (event, arg) => {
+  win.maximize()
+})
+
+ipcMain.on('close', (event, arg) => {
+  app.quit()
 })
