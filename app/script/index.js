@@ -81,11 +81,16 @@ var KEY     = { ESC: 27, SPACE: 32, LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40 },
 
 // Create the variables that will most likely reset for every games
 
-var height = canvas.scrollHeight,
-    width  = canvas.scrollWidth
+var height  = canvas.scrollHeight,
+    width   = canvas.scrollWidth
+    uheight = ucanvas.scrollHeight,
+    uwidth  = ucanvas.scrollWidth
 
 canvas.width = width
 canvas.height = height
+
+ucanvas.width = uwidth
+ucanvas.height = uheight
 
 window.addEventListener('keydown', keydown)
 
@@ -223,7 +228,6 @@ function reset() {
   dt = 0;
   clearActions();
   clearBlocks();
-  clearRows();
   clearScore();
   setCurrentPiece(next);
   setNextPiece();
@@ -336,7 +340,7 @@ function dropPiece() {
   eachblock(current.type,current.x,current.y,current.dir,function(x, y) {
     setBlock(x, y, current.type)
     setCurrentPiece(next)
-    setNextPiece(randomPiece())
+    
   })
 }
 
@@ -409,11 +413,9 @@ function drawNext() {
   if (invalid.next) {
     var padding = (nu - next.type.size) / 2 // Center the piece
     uctx.save()
-    uctx.translate(0.5, 0.5)
-    uctx.clearRect(0, 0, nu*dx, nu*dy)
+    uctx.clearRect(0, 0, uwidth, uheight)
+    uctx.translate(0.4 * uwidth, 0.3 * uheight)
     drawPiece(uctx, next.type, padding, padding, next.dir)
-    uctx.strokeStyle = 'black'
-    uctx.strokeRect(0, 0, nu*dx - 1, nu*dy -1)
     uctx.restore()
     invalid.next = false
   }
