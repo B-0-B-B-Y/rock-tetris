@@ -136,16 +136,77 @@ frame()
 function keydown(ev) {
   if (playing) {
     switch(ev.keyCode) {
-      case KEY.LEFT: actions.push(DIR.LEFT)
+      case KEY.LEFT:  actions.push(DIR.LEFT)
       break
       case KEY.RIGHT: actions.push(DIR.RIGHT)
       break
-      case KEY.UP: actions.push(DIR.UP)
+      case KEY.UP:    actions.push(DIR.UP)
       break
-      case KEY.DOWN: actions.push(DIR.DOWN)
+      case KEY.DOWN:  actions.push(DIR.DOWN)
       break
-      case KEY.ESC: lose()
+      case KEY.ESC:   lose()
       break
     }
+  }
+  else if (ev.keyCode == KEY.SPACE) {
+    play()
+  }
+}
+
+// Handle the next user actions
+
+function update(idt) {
+  if (playing) {
+    handle(actions.shift())
+    dt = dt + idtif (dt > step) {
+      dt = dt = step
+      drop()
+    }
+  }
+}
+
+// Handle the user input in relation to what they want to do with the pieces
+
+function handle(action) {
+  switch(action) {
+    case DIR.LEFT:  move(DIR.LEFT)
+    break
+    case DIR.RIGHT: move(DIR.RIGHT)
+    break
+    case DIR.UP:    rotate()
+    break
+    case DIR.DOWN:  drop()
+    break
+  }
+}
+
+// Define the operations that can be carried out on the pieces
+
+function move(dir) {
+  var x = current.x, y = current.y
+  switch(dir) {
+    case DIR.RIGHT: x = x + 1
+    break
+    case DIR.LEFT:  x = x - 1
+    break
+    case DIR.DOWN:  y = y + 1
+    break
+  }
+  if(unoccupied(current.type, x, y, current.dir)) {
+    current.x = x
+    current.y = y
+    invalidate()
+    return true
+  }
+  else {
+    return false
+  }
+}
+
+function rotate(dir) {
+  var newdir = (current.dir == DIR.MAX ? DIR.MIN : current.dir + 1)
+  if (unoccupied(current.type, current.x, current.y, newdir)) {
+    current.dir = newdir
+    invalidate()
   }
 }
