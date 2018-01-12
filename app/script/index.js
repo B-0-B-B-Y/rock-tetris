@@ -9,6 +9,15 @@ var s = { blocks: [0x06C0, 0x8C40, 0x6C00, 0x4620], color: 'green'  }
 var t = { blocks: [0x0E40, 0x4C40, 0x4E00, 0x4640], color: 'purple' }
 var z = { blocks: [0x0C60, 0x4C80, 0xC600, 0x2640], color: 'red'    }
 
+// Invalid Object
+
+let invalid = {
+  court: true,
+  next: true,
+  score: true,
+  rows: true,
+}
+
 // Generate a helper method that will iterate over all of the cells in the tetris grid that the piece
 // will occupy
 
@@ -55,10 +64,10 @@ function randomPiece() {
 
 var KEY     = { ESC: 27, SPACE: 32, LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40 },
     DIR     = { UP: 0, RIGHT: 1, DOWN: 2, LEFT: 3, MIN: 0, MAX: 3 },
-    stats   = new Stats(),
-    canvas  = get('canvas'),
+    //stats   = new Stats(),
+    canvas  = get('game'),
     ctx     = canvas.getContext('2d'),
-    ucanvas = get('upcoming'),
+    ucanvas = get('game-next'),
     uctx    = ucanvas.getContext('2d'),
     speed   = { start: 0.6, decrement: 0.005, min: 0.1 }, // seconds until current piece drops 1 row
     nx      = 10,                                         // width of tetris court (in blocks)
@@ -71,7 +80,7 @@ var KEY     = { ESC: 27, SPACE: 32, LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40 },
 var dx, dy,        // pixel size of a single tetris block
     blocks,        // 2 dimensional array (nx*ny) representing tetris court - either empty block or occupied by a 'piece'
     actions,       // queue of user actions (inputs)
-    playing,       // true|false - game is in progress
+    playing = true,       // true|false - game is in progress
     dt,            // time since starting this game
     current,       // the current piece
     next,          // the next piece
@@ -80,6 +89,10 @@ var dx, dy,        // pixel size of a single tetris block
     step          // how long before current piece drops by 1 row
 
 // Define get and set methods to variables
+
+function get(id) {
+  return document.getElementById(id)
+}
 
 function setScore(n) {
   score = n
@@ -122,9 +135,9 @@ function setNextPiece(piece) {
 
 // Create the game loop
 
-var last = now = timestamp()
+var last = now = Date.now()
 function frame() {
-  now = timestamp()
+  now = Date.now()
   update((now - last) / 1000.0)
   draw()
   last = now
@@ -244,8 +257,6 @@ function html(id, html) {
 // 3) Next Piece preview display
 // 4) The game canvas
 
-var invalid = {}
-
 function invalidate() {
   invalid.court = true
 }
@@ -284,14 +295,15 @@ function drawCourt() {
         drawBlock(ctx, x, y, block.color)
     }
   }
-  ctx.stroke(0, 0, nx*dx - 1, ny*dy -1)   // NB: This is the court boundary
+  ctx.rect(0, 0, nx*dx - 1, ny*dy -1)
+  ctx.stroke()   // NB: This is the court boundary
   invalid.court = false
   }
 }
 
 function drawNext() {
   if (invalid.next) {
-    var paddding = (nu - next.type.size) / 2 // Center the piece
+    var padding = (nu - next.type.size) / 2 // Center the piece
     uctx.save()
     uctx.translate(0.5, 0.5)
     uctx.clearRect(0, 0, nu*dx, nu*dy)
