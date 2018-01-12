@@ -212,3 +212,22 @@ function rotate(dir) {
     invalidate()
   }
 }
+
+function drop() {
+  if(!move(DIR.DOWN)) {
+    addScore(10)
+    dropPiece()
+    removeLines()
+    setCurrentPiece(next)
+    setNextPiece(randomPiece())
+    if (occupied(current.type, current.x, current.y, current.dir)) {
+      lose()
+    }
+  }
+}
+
+function dropPiece() {
+  eachblock(current.type,current.x,current.y,current.dir,function(x, y) {
+    setBlock(x, y, current.type)
+  })
+}
