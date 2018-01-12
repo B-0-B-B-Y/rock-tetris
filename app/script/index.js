@@ -128,6 +128,10 @@ function addScore(n) {
   score = score + n
 }
 
+function setLines(n) {
+  lines = n
+}
+
 function setRows(n) {
   rows = n
   step = Math.max(speed.min, speed.start - (speed.decrement*rows))
@@ -169,6 +173,7 @@ function clearBlocks() {
 
 function clearScore() {
   setScore(0)
+  setLines(0)
 }
 
 // Create the game loop
