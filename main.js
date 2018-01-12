@@ -4,6 +4,8 @@ const path = require('path')
 
 require('electron-reload')(__dirname)
 
+let win = null;
+
 app.on('ready', () => {
 
     const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize
