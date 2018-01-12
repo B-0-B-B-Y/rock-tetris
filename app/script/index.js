@@ -73,7 +73,7 @@ var KEY     = { ESC: 27, SPACE: 32, LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40 },
     ucanvas = get('game-next'),
     uctx    = ucanvas.getContext('2d'),
     speed   = { start: 0.6, decrement: 0.005, min: 0.1 }, // seconds until current piece drops 1 row
-    nx      = 10,                                         // width of tetris court (in blocks)
+    nx      = 12,                                         // width of tetris court (in blocks)
     ny      = 20,                                         // height of tetris court (in blocks)
     nu      = 16                                          // width/height of upcoming preview (in blocks)
 
@@ -85,6 +85,8 @@ var height = canvas.scrollHeight,
 
 canvas.width = width
 canvas.height = height
+
+window.addEventListener('keydown', keydown)
 
 var dx = width / nx, dy = height / ny,        // pixel size of a single tetris block
     blocks,        // 2 dimensional array (nx*ny) representing tetris court - either empty block or occupied by a 'piece'
@@ -165,6 +167,7 @@ frame()
 
 function keydown(ev) {
   if (playing) {
+    console.log(ev.keyCode)
     switch(ev.keyCode) {
       case KEY.LEFT:  actions.push(DIR.LEFT)
       break
@@ -293,7 +296,7 @@ function draw() {
   ctx.save()
   ctx.lineWidth = 1
   ctx.translate(0.5, 0.5)
-  drawRows()
+  //drawRows()
   drawCourt()
   drawNext()
   drawScore()
