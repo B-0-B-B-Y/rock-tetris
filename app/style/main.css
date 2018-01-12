@@ -22,7 +22,10 @@ body {
 .titlebar {
     height: 32px;
     background-color: #000000;
-    text-align: right;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
     -webkit-app-region: drag;
 }
 .titlebar-button {
@@ -30,7 +33,7 @@ body {
     color: #FFFFFF;
     height: 100%;
     line-height: 24px;
-    padding: 6px 12px;
+    padding: 4px 12px;
     -webkit-appearance: none;
     border: 0;
     background-color: inherit;
@@ -46,6 +49,9 @@ body {
 }
 .titlebar-button img {
     max-height: 100%;
+}
+#minimise img, #maximise img {
+    max-height: 20px;
 }
 
 /**** MAIN ****/
