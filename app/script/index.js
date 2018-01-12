@@ -73,8 +73,8 @@ var KEY     = { ESC: 27, SPACE: 32, LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40 },
     ucanvas = get('game-next'),
     uctx    = ucanvas.getContext('2d'),
     speed   = { start: 0.6, decrement: 0.005, min: 0.1 }, // seconds until current piece drops 1 row
-    nx      = 20,                                         // width of tetris court (in blocks)
-    ny      = 80,                                         // height of tetris court (in blocks)
+    nx      = 10,                                         // width of tetris court (in blocks)
+    ny,                                         // height of tetris court (in blocks)
     nu      = 16                                          // width/height of upcoming preview (in blocks)
 
 
@@ -83,7 +83,7 @@ var KEY     = { ESC: 27, SPACE: 32, LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40 },
 var height = canvas.offsetHeight,
     width  = canvas.offsetWidth
 
-var dx = width / nx, dy = height / ny,        // pixel size of a single tetris block
+var dx = width / nx, dy = width / nx,        // pixel size of a single tetris block
     blocks,        // 2 dimensional array (nx*ny) representing tetris court - either empty block or occupied by a 'piece'
     actions = [],       // queue of user actions (inputs)
     playing = true,       // true|false - game is in progress
@@ -94,6 +94,10 @@ var dx = width / nx, dy = height / ny,        // pixel size of a single tetris b
     rows,          // number of completed rows in the current game
     step          // how long before current piece drops by 1 row
     pace = 2;
+
+ny = dy * 20
+
+console.log(width / dx)
 
 // Define get and set methods to variables
 
@@ -315,8 +319,8 @@ function drawCourt() {
 }
 
 function drawRows() {
-  for (var y = 0; y < ny; y+=dy) {
-    for (var x = 0; x < nx; x+=dx) {
+  for (var y = 0; y < height; y+=dy) {
+    for (var x = 0; x < width; x+=dx) {
       ctx.rect(x, y, x+dx, y+dy)
       ctx.stroke()
     }
