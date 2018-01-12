@@ -326,6 +326,7 @@ function removeLines() {
   }
   if (n > 0) {
     addRows(n);
+    lines += n;
     addScore(100*Math.pow(2,n-1));
   }
 }
@@ -335,8 +336,6 @@ function removeLine(n) {
   for(y = n ; y >= 0 ; --y) {
     for(x = 0 ; x < nx ; ++x) {
       setBlock(x, y, (y == 0) ? null : getBlock(x, y-1));
-      console.log('here')
-      lines++;
     }
   }
 }
