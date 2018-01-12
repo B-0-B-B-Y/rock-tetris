@@ -231,3 +231,29 @@ function dropPiece() {
     setBlock(x, y, current.type)
   })
 }
+
+// Set up how the pieces are going to be rendered using the <canvas> API
+
+function html(id, html) {
+  document.getElementById(id).innerHTML = html
+}
+
+// Changable user interface will be split into 4 components:
+// 1) The score
+// 2) Completed row count
+// 3) Next Piece preview display
+// 4) The game canvas
+
+var invalid = {}
+
+function invalidate() {
+  invalid.court = true
+}
+
+function invalidateNext() {
+  invalid.next = true
+}
+
+function invalidateScore() {
+  invalid.score = true
+}
