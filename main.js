@@ -8,7 +8,7 @@ app.on('ready', () => {
 
     let win = new BrowserWindow({
         height: height / 1.5,
-        width: width / 4,
+        width: width / 2.5,
         frame: false,
     })
 
