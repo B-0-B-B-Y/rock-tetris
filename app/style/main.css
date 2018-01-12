@@ -104,18 +104,18 @@ p {
     align-items: stretch;
     justify-content: stretch;
     position: relative;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 .game-wallpaper {
     display: inline-block;
     position: absolute;
     left: -50%;
-    bottom: 0;
+    bottom: -10px;
     right: 0;
-    height: 100%;
+    height: calc(100% + 20px);
     margin: auto;
     z-index: -1;
-    filter: blur(8px);
+    filter: blur(8px) brightness(65%);
 }
 #game {
     flex: 1;
