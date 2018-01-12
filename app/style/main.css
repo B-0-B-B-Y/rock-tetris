@@ -84,6 +84,10 @@ p {
     display: flex;
     flex-flow: column nowrap;
     align-items: stretch;
+    background-image: url('../assets/img/wallpapers/wallpaper_2.jpg');
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: none;
 }
 
 /**** GAME WINDOW ****/
