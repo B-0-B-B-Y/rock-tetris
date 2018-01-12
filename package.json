@@ -25,6 +25,7 @@
   "homepage": "https://github.com/B-0-B-B-Y/rock-tetris#readme",
   "dependencies": {},
   "devDependencies": {
-    "electron": "^1.7.10"
+    "electron": "^1.7.10",
+    "electron-reload": "^1.2.2"
   }
 }
