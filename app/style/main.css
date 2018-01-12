@@ -42,7 +42,7 @@ body {
     -webkit-app-region: no-drag;
 }
 .titlebar-button:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.4);
 }
 .titlebar-button:focus {
     outline: 0;
