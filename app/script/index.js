@@ -212,7 +212,7 @@ function keydown(ev) {
       break
       case KEY.DOWN:  actions.push(DIR.DOWN)
       break
-      case KEY.ESC:   lose()
+      case KEY.ESC:   lose('YOU QUIT')
       break
     }
   }
@@ -229,10 +229,10 @@ function play() {
   playing = true
 }
 
-function lose() {
+function lose(text) {
   //show('start')
   setVisualScore()
-  showOverlay()
+  showOverlay(text)
   playing = false
 }
 
@@ -457,8 +457,9 @@ function drawBlock(ctx, x, y, color) {
   ctx.strokeRect(x*dx, y*dy, dx, dy)
 }
 
-function showOverlay() {
+function showOverlay(text) {
   overlay.className += 'visible'
+  get('overlay-text').innerHTML = text || 'GAME OVER'
 }
 
 function hideOverlay() {

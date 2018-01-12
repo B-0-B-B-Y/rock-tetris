@@ -109,16 +109,23 @@ p {
     background-color: rgba(0, 0, 0, 0.6);
     margin: auto;
     color: #FFFFFF;
-    font-family: StringsTheory, sans-serif;
-    font-size: 4em;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     display: none;
+    flex-flow: column nowrap;
 }
 #game-overlay.visible {
     display: flex;
+}
+#overlay-text {
+    font-family: StringsTheory, sans-serif;
+    font-size: 4em;
+    margin-bottom: 16px;
+}
+.overlay-retry {
+    font-size: 2em;
 }
 
 /**** GAME SIDE ****/
