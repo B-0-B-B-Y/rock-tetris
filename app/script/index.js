@@ -178,6 +178,7 @@ var last, now;
 setRows(12)
 setCurrentPiece()
 setNextPiece(randomPiece())
+setVisualScore()
 
 last = Date.now()
 function frame() {
