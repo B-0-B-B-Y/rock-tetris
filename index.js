@@ -5,6 +5,7 @@ app.on('ready', () => {
     let win = new BrowserWindow({
         height: 800,
         width: 500,
+        frame: false,
     })
 
     win.loadURL(path.join(__dirname, '/app/index.html'))
