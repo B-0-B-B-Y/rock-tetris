@@ -16,4 +16,6 @@ app.on('ready', () => {
     })
 
     win.loadURL('file://' + __dirname + '/app/index.html')
+
+    win.webContents.openDevTools()
 })
