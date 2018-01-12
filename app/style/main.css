@@ -22,6 +22,7 @@ body {
     flex-flow: column nowrap;
     font-size: 62.5%;
     background-color: black;
+    overflow: hidden;
 }
 img {
     pointer-events: none;
@@ -90,6 +91,16 @@ p {
     background-position: 50% 90%;
     background-repeat: no-repeat;
 }
+.game-wallpaper {
+    display: inline-block;
+    position: absolute;
+    left: -75px;
+    width: calc(50% + 160px);
+    bottom: -32px;
+    right: 0;
+    height: calc(100% - 100px);
+    z-index: 100;
+}
 
 /**** GAME WINDOW ****/
 .game-title {
@@ -120,16 +131,6 @@ p {
     justify-content: stretch;
     position: relative;
     overflow: hidden;
-}
-.game-wallpaper {
-    display: inline-block;
-    position: absolute;
-    left: -80px;
-    width: calc(100% + 160px);
-    bottom: -20px;
-    right: 0;
-    height: calc(100% + 24px);
-    margin: auto;
 }
 #game {
     flex: 1;
