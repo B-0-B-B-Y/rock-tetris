@@ -10,7 +10,7 @@ app.on('ready', () => {
 
     const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize
 
-    let win = new BrowserWindow({
+    win = new BrowserWindow({
         height: height / 1.5,
         width: width / 2.5,
         frame: false,
