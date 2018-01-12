@@ -101,8 +101,9 @@ var dx = width / nx, dy = height / ny,        // pixel size of a single tetris b
     dt = Date.now() / 1000,            // time since starting this game
     current,       // the current piece
     next,          // the next piece
-    score,         // the current score
+    score = 0,         // the current score
     vscore,
+    lines = 0,
     rows,          // number of completed rows in the current game
     step          // how long before current piece drops by 1 row
     pace = 2;
@@ -331,8 +332,11 @@ function removeLines() {
 function removeLine(n) {
   var x, y;
   for(y = n ; y >= 0 ; --y) {
-    for(x = 0 ; x < nx ; ++x)
+    for(x = 0 ; x < nx ; ++x) {
       setBlock(x, y, (y == 0) ? null : getBlock(x, y-1));
+      console.log('here')
+      lines++;
+    }
   }
 }
 
@@ -341,7 +345,6 @@ function dropPiece() {
   eachblock(current.type,current.x,current.y,current.dir,function(x, y) {
     setBlock(x, y, type)
     setCurrentPiece(next)
-    
   })
 }
 
@@ -426,6 +429,7 @@ function drawNext() {
 function drawScore() {
   if (invalid.score) {
     html('score', ("00000" + Math.floor(score)).slice(-5))
+    html('lines', lines)
     invalid.score = false
   }
 }
