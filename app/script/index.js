@@ -345,6 +345,10 @@ function dropPiece() {
   eachblock(current.type,current.x,current.y,current.dir,function(x, y) {
     setBlock(x, y, type)
     setCurrentPiece(next)
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
   })
 }
 
@@ -428,7 +432,7 @@ function drawNext() {
 
 function drawScore() {
   if (invalid.score) {
-    html('score', ("00000" + Math.floor(score)).slice(-5))
+    html('score', ("00000" + Math.floor(vscore)).slice(-5))
     html('lines', lines)
     invalid.score = false
   }
