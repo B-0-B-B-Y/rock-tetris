@@ -1,10 +1,14 @@
+const electron = require('electron')
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
 app.on('ready', () => {
+
+    const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize
+
     let win = new BrowserWindow({
-        height: 800,
-        width: 500,
+        height: height / 1.5,
+        width: width / 4,
         frame: false,
     })
 
