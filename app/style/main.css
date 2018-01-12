@@ -20,7 +20,7 @@ body {
 
 /**** TITLEBAR ****/
 .titlebar {
-    height: 24px;
+    height: 32px;
     background-color: #000000;
     text-align: right;
     -webkit-app-region: drag;
@@ -30,7 +30,7 @@ body {
     color: #FFFFFF;
     height: 100%;
     line-height: 24px;
-    padding: 0 12px;
+    padding: 6px 12px;
     -webkit-appearance: none;
     border: 0;
     background-color: inherit;
@@ -43,6 +43,9 @@ body {
 }
 .titlebar-button:focus {
     outline: 0;
+}
+.titlebar-button img {
+    max-height: 100%;
 }
 
 /**** MAIN ****/
