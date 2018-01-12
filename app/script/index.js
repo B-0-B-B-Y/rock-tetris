@@ -249,12 +249,40 @@ function drop() {
   if(!move(DIR.DOWN)) {
     addScore(10)
     dropPiece()
-    //removeLines()
+    removeLines()
     setCurrentPiece(next)
     setNextPiece(randomPiece())
     if (occupied(current.type, current.x, current.y, current.dir)) {
       lose()
     }
+  }
+}
+
+function removeLines() {
+  var x, y, complete, n = 0;
+  for(y = ny ; y > 0 ; --y) {
+    complete = true;
+    for(x = 0 ; x < nx ; ++x) {
+      if (!getBlock(x, y))
+        complete = false;
+    }
+    if (complete) {
+      removeLine(y);
+      y = y + 1;
+      n++;
+    }
+  }
+  if (n > 0) {
+    addRows(n);
+    addScore(100*Math.pow(2,n-1));
+  }
+}
+
+function removeLine(n) {
+  var x, y;
+  for(y = n ; y >= 0 ; --y) {
+    for(x = 0 ; x < nx ; ++x)
+      setBlock(x, y, (y == 0) ? null : getBlock(x, y-1));
   }
 }
 
