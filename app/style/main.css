@@ -119,8 +119,10 @@ body {
 .stat_label {
     font-weight: bold;
     text-transform: uppercase;
-    color: #888888;
+    color: #FFFFFF;
     font-size: 2.5em;
+    text-shadow: 0 0 16px #981243;
+    letter-spacing: 0.5px;
 }
 .stat_data {
     font-family: monospace;
