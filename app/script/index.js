@@ -59,7 +59,8 @@ var pieces = []
 function randomPiece() {
   if (pieces.length == 0)
     pieces = [i,i,i,i,j,j,j,j,l,l,l,l,o,o,o,o,s,s,s,s,t,t,t,t,z,z,z,z]
-  var type = pieces.splice(Math.random(0, pieces.length-1), 1)[0]
+
+  var type = pieces.splice(Math.random() * pieces.length-1, 1)[0]
   return { type: type, dir: DIR.UP, x: 2, y: 0 }
 }
 
@@ -150,7 +151,7 @@ function setNextPiece(piece) {
 var last, now;
 
 setRows(12)
-setCurrentPiece(next)
+setCurrentPiece()
 setNextPiece(randomPiece())
 
 last = Date.now()
@@ -167,7 +168,6 @@ frame()
 
 function keydown(ev) {
   if (playing) {
-    console.log(ev.keyCode)
     switch(ev.keyCode) {
       case KEY.LEFT:  actions.push(DIR.LEFT)
       break
