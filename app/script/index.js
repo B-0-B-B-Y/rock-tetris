@@ -90,7 +90,7 @@ canvas.height = height
 window.addEventListener('keydown', keydown)
 
 var dx = width / nx, dy = height / ny,        // pixel size of a single tetris block
-    blocks,        // 2 dimensional array (nx*ny) representing tetris court - either empty block or occupied by a 'piece'
+    blocks = [],        // 2 dimensional array (nx*ny) representing tetris court - either empty block or occupied by a 'piece'
     actions = [],       // queue of user actions (inputs)
     playing = true,       // true|false - game is in progress
     dt = Date.now() / 1000,            // time since starting this game
@@ -249,7 +249,7 @@ function drop() {
   if(!move(DIR.DOWN)) {
     addScore(10)
     dropPiece()
-    removeLines()
+    //removeLines()
     setCurrentPiece(next)
     setNextPiece(randomPiece())
     if (occupied(current.type, current.x, current.y, current.dir)) {
@@ -261,6 +261,8 @@ function drop() {
 function dropPiece() {
   eachblock(current.type,current.x,current.y,current.dir,function(x, y) {
     setBlock(x, y, current.type)
+    setCurrentPiece(next)
+    setNextPiece(randomPiece())
   })
 }
 
