@@ -86,7 +86,7 @@ p {
     flex-flow: column nowrap;
     align-items: stretch;
     background-image: url('../assets/img/wallpapers/wallpaper_2.jpg');
-    background-size: contain;
+    background-size: 125%;
     background-position: 50% 90%;
     background-repeat: no-repeat;
 }
@@ -124,9 +124,9 @@ p {
 .game-wallpaper {
     display: inline-block;
     position: absolute;
-    left: -50px;
-    width: calc(100% + 100px);
-    bottom: -12px;
+    left: -80px;
+    width: calc(100% + 160px);
+    bottom: -20px;
     right: 0;
     height: calc(100% + 24px);
     margin: auto;
