@@ -140,6 +140,8 @@ setRows(12)
 last = Date.now() - (step * 1000)
 function frame() {
   now = Date.now()
+  setCurrentPiece(next)
+  setNextPiece(randomPiece())
   update((now - last) / 1000.0)
   draw()
   last = now
