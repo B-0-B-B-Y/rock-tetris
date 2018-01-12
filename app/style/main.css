@@ -134,7 +134,7 @@ p {
 #game {
     flex: 1;
     display: inline-block;
-    margin: 20px 24px 28px;
+    margin: 10%;
 }
 #game-overlay {
     position: absolute;
