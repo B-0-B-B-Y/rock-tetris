@@ -107,9 +107,14 @@ function get(id) {
   return document.getElementById(id)
 }
 
+function setVisualScore(n) {
+  vscore = n || score
+  invalidateScore()
+}
+
 function setScore(n) {
   score = n
-  invalidateScore()
+  setVisualScore(n)
 }
 
 function addScore(n) {
@@ -144,6 +149,19 @@ function setCurrentPiece(piece) {
 function setNextPiece(piece) {
   next = piece || randomPiece()
   invalidateNext()
+}
+
+function clearActions() {
+  actions = []
+}
+
+function clearBlocks() {
+  blocks = []
+  invalidate()
+}
+
+function clearScore() {
+  setScore(0)
 }
 
 // Create the game loop
@@ -186,10 +204,37 @@ function keydown(ev) {
   }
 }
 
+// Define play() and lose() functions
+
+function play() {
+  //hide('start')
+  reset()
+  playing = true
+}
+
+function lose() {
+  //show('start')
+  setVisualScore()
+  playing = false
+}
+
+function reset() {
+  dt = 0;
+  clearActions();
+  clearBlocks();
+  clearRows();
+  clearScore();
+  setCurrentPiece(next);
+  setNextPiece();
+}
+
+
 // Handle the next user actions
 
 function update(idt) {
   if (playing) {
+    if (vscore < score)
+      setVisualScore(vscore + 1)
     handle(actions.shift())
     dt = dt + idt
     if (dt > (step * pace)) {
