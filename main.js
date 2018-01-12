@@ -30,6 +30,10 @@ ipcMain.on('maximise', (event, arg) => {
   win.maximize()
 })
 
+ipcMain.on('unmaximise', (event, arg) => {
+  win.unmaximize()
+})
+
 ipcMain.on('close', (event, arg) => {
   app.quit()
 })
