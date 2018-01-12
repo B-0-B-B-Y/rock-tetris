@@ -1,20 +1,20 @@
 
 // Generate the block that are used in the game and assign unique colours to them
 
-var i = { blocks: [0x0F00, 0x2222, 0x00F0, 0x4444], color: 'cyan'   };
-var j = { blocks: [0x44C0, 0x8E00, 0x6440, 0x0E20], color: 'blue'   };
-var l = { blocks: [0x4460, 0x0E80, 0xC440, 0x2E00], color: 'orange' };
-var o = { blocks: [0xCC00, 0xCC00, 0xCC00, 0xCC00], color: 'yellow' };
-var s = { blocks: [0x06C0, 0x8C40, 0x6C00, 0x4620], color: 'green'  };
-var t = { blocks: [0x0E40, 0x4C40, 0x4E00, 0x4640], color: 'purple' };
-var z = { blocks: [0x0C60, 0x4C80, 0xC600, 0x2640], color: 'red'    };
+var i = { blocks: [0x0F00, 0x2222, 0x00F0, 0x4444], color: 'cyan'   }
+var j = { blocks: [0x44C0, 0x8E00, 0x6440, 0x0E20], color: 'blue'   }
+var l = { blocks: [0x4460, 0x0E80, 0xC440, 0x2E00], color: 'orange' }
+var o = { blocks: [0xCC00, 0xCC00, 0xCC00, 0xCC00], color: 'yellow' }
+var s = { blocks: [0x06C0, 0x8C40, 0x6C00, 0x4620], color: 'green'  }
+var t = { blocks: [0x0E40, 0x4C40, 0x4E00, 0x4640], color: 'purple' }
+var z = { blocks: [0x0C60, 0x4C80, 0xC600, 0x2640], color: 'red'    }
 
 // Generate a helper method that will iterate over all of the cells in the tetris grid that the piece
 // will occupy
 
 function eachblock(type, x, y, dir, fn) {
   var bit, result, row = 0, col = 0, blocks = type.blocks[dir]
-  for(bit = 0x800 ; bit > 0 ; bit = bit >> 1) {
+  for(bit = 0x800  bit > 0  bit = bit >> 1) {
     if (blocks & bit) {
       fn(x + col, y + row)
     }
@@ -63,4 +63,89 @@ var KEY     = { ESC: 27, SPACE: 32, LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40 },
     speed   = { start: 0.6, decrement: 0.005, min: 0.1 }, // seconds until current piece drops 1 row
     nx      = 10,                                         // width of tetris court (in blocks)
     ny      = 20,                                         // height of tetris court (in blocks)
-    nu      = 5;                                          // width/height of upcoming preview (in blocks)
+    nu      = 5                                          // width/height of upcoming preview (in blocks)
+
+
+// Create the variables that will most likely reset for every games
+
+var dx, dy,        // pixel size of a single tetris block
+    blocks,        // 2 dimensional array (nx*ny) representing tetris court - either empty block or occupied by a 'piece'
+    actions,       // queue of user actions (inputs)
+    playing,       // true|false - game is in progress
+    dt,            // time since starting this game
+    current,       // the current piece
+    next,          // the next piece
+    score,         // the current score
+    rows,          // number of completed rows in the current game
+    step          // how long before current piece drops by 1 row
+
+// Define get and set methods to variables
+
+function setScore(n) {
+  score = n
+  invalidateScore()
+}
+
+function addScore(n) {
+  score = score + n
+}
+
+function setRows(n) {
+  rows = n
+  step = Math.max(speed.min, speed.start - (speed.decrement*rows))
+  invalidateRows()
+}
+
+function addRows(n) {
+  setRows(rows + n)
+}
+
+function getBlock(x,y) {
+  return (blocks && blocks[x] ? blocks[x][y] : null)
+}
+
+function setBlock(x,y,type) {
+  blocks[x] = blocks[x] || [] blocks[x][y] = type
+  invalidate()
+}
+
+function setCurrentPiece(piece) {
+  current = piece || randomPiece()
+  invalidate()
+}
+
+function setNextPiece(piece) {
+  next = piece || randomPiece()
+  invalidateNext()
+}
+
+// Create the game loop
+
+var last = now = timestamp()
+function frame() {
+  now = timestamp()
+  update((now - last) / 1000.0)
+  draw()
+  last = now
+  requestAnimationFrame(frame, canvas)
+}
+frame()
+
+// Handle the input from the keyboard
+
+function keydown(ev) {
+  if (playing) {
+    switch(ev.keyCode) {
+      case KEY.LEFT: actions.push(DIR.LEFT)
+      break
+      case KEY.RIGHT: actions.push(DIR.RIGHT)
+      break
+      case KEY.UP: actions.push(DIR.UP)
+      break
+      case KEY.DOWN: actions.push(DIR.DOWN)
+      break
+      case KEY.ESC: lose()
+      break
+    }
+  }
+}
