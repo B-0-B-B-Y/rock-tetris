@@ -97,6 +97,7 @@ var dx = width / nx, dy = height / ny,        // pixel size of a single tetris b
     current,       // the current piece
     next,          // the next piece
     score,         // the current score
+    vscore,
     rows,          // number of completed rows in the current game
     step          // how long before current piece drops by 1 row
     pace = 2;
