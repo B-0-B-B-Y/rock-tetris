@@ -1,4 +1,4 @@
-
+const { ipcRenderer } = require('electron')
 // Generate the block that are used in the game and assign unique colours to them
 
 var i = { blocks: [0x0F00, 0x2222, 0x00F0, 0x4444], color: 'cyan'   }
