@@ -84,6 +84,13 @@ body {
 .stat {
     margin: 16px 0;
     font-size: 2em;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.stat p {
+    display: inline-block;
 }
 .stat_label {
     font-weight: bold;
@@ -93,4 +100,6 @@ body {
 .stat_data {
     font-family: monospace;
     color: #000000;
+    font-weight: bold;
+    text-align: right;
 }
