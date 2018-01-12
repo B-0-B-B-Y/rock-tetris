@@ -73,6 +73,7 @@ var KEY     = { ESC: 27, SPACE: 32, LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40 },
     ctx     = canvas.getContext('2d'),
     ucanvas = get('game-next'),
     uctx    = ucanvas.getContext('2d'),
+    overlay = get('game-overlay')
     speed   = { start: 0.6, decrement: 0.005, min: 0.1 }, // seconds until current piece drops 1 row
     nx      = 12,                                         // width of tetris court (in blocks)
     ny      = 20,                                         // height of tetris court (in blocks)
@@ -231,6 +232,7 @@ function play() {
 function lose() {
   //show('start')
   setVisualScore()
+  showOverlay()
   playing = false
 }
 
@@ -241,6 +243,7 @@ function reset() {
   clearScore();
   setCurrentPiece(next);
   setNextPiece();
+  hideOverlay()
 }
 
 
@@ -452,6 +455,14 @@ function drawBlock(ctx, x, y, color) {
   ctx.fillStyle = color
   ctx.fillRect(x*dx, y*dy, dx, dy)
   ctx.strokeRect(x*dx, y*dy, dx, dy)
+}
+
+function showOverlay() {
+  overlay.className += 'visible'
+}
+
+function hideOverlay() {
+  overlay.className = ''
 }
 
 // Add functionality to the control buttons of the window

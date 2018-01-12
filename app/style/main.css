@@ -76,6 +76,7 @@ p {
     flex: 1;
     display: inline-flex;
     flex-flow: column nowrap;
+    position: relative;
 }
 .game-side {
     flex: 1;
@@ -98,6 +99,26 @@ p {
     vertical-align: top;
     box-shadow: 10px 10px 10px #999;
     border: 2px solid #333;
+}
+#game-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: calc(100% - 128px);
+    background-color: rgba(0, 0, 0, 0.6);
+    margin: auto;
+    color: #FFFFFF;
+    font-family: StringsTheory, sans-serif;
+    font-size: 4em;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+#game-overlay.visible {
+    display: flex;
 }
 
 /**** GAME SIDE ****/
