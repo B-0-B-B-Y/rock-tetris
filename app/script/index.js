@@ -26,7 +26,7 @@ let invalid = {
 
 function eachblock(type, x, y, dir, fn) {
   var bit, result, row = 0, col = 0, blocks = type.blocks[dir]
-  for(bit = 0x800;  bit > 0;  bit = bit >> 1) {
+  for(bit = 0x8000;  bit > 0;  bit = bit >> 1) {
     if (blocks & bit) {
       fn(x + col, y + row)
     }
@@ -76,7 +76,7 @@ var KEY     = { ESC: 27, SPACE: 32, LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40 },
     speed   = { start: 0.6, decrement: 0.005, min: 0.1 }, // seconds until current piece drops 1 row
     nx      = 12,                                         // width of tetris court (in blocks)
     ny      = 20,                                         // height of tetris court (in blocks)
-    nu      = 16                                          // width/height of upcoming preview (in blocks)
+    nu      = 2                                          // width/height of upcoming preview (in blocks)
 
 
 // Create the variables that will most likely reset for every games
