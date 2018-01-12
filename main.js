@@ -13,5 +13,5 @@ app.on('ready', () => {
         icon: path.join(__dirname, 'app/build/512x512.png')
     })
 
-    win.loadURL(path.join(__dirname, 'app/index.html'))
+    win.loadURL('file://' + __dirname + '/app/index.html')
 })
