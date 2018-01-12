@@ -427,14 +427,27 @@ function drawRows() {
 
 function drawNext() {
   if (invalid.next) {
-    var padding = 0
+    var padding = 0;
     uctx.save()
     uctx.clearRect(0, 0, uwidth, uheight)
     uctx.translate((0.5 * uwidth) - (next.type.size * dx / 2), (0.5 * uheight) - (next.type.size * dy / 2))
-    drawPiece(uctx, next.type, padding, padding, next.dir)
+    drawNextPiece(uctx, next.type, padding, padding, next.dir)
     uctx.restore()
     invalid.next = false
   }
+}
+
+function drawNextPiece(ctx, type, x, y, dir) {
+  eachblock(type, x, y, dir, function(x, y) {
+    drawNextBlock(ctx, x, y, type.color)
+  })
+}
+
+function drawNextBlock(ctx, x, y, color) {
+  var scale = 1.2;
+  ctx.fillStyle = color
+  ctx.fillRect(x*dx / scale, y*dy / scale, dx / scale, dy / scale)
+  ctx.strokeRect(x*dx / scale, y*dy / scale, dx / scale, dy / scale)
 }
 
 function drawScore() {
