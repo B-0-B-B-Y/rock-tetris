@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'StringsTheory';
+    src: url('../assets/font/StringsTheory.otf');
+}
+
 /**** GENERAL ****/
 * {
     margin: 0;
@@ -97,6 +102,8 @@ body {
 }
 .game-stats {
     padding: 32px;
+    background: url('../assets/img/texture/leather.png');
+    margin: 8px;
 }
 .stat {
     margin: 16px 0;
@@ -107,16 +114,17 @@ body {
 }
 .stat p {
     display: inline-block;
+    font-family: StringsTheory, sans-serif;
 }
 .stat_label {
     font-weight: bold;
     text-transform: uppercase;
-    color: #444444;
-    font-size: 2em;
+    color: #888888;
+    font-size: 2.5em;
 }
 .stat_data {
     font-family: monospace;
-    color: #000000;
+    color: #FFFFFF;
     font-weight: bold;
     text-align: right;
     font-size: 4em;
