@@ -70,14 +70,17 @@ var KEY     = { ESC: 27, SPACE: 32, LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40 },
     ucanvas = get('game-next'),
     uctx    = ucanvas.getContext('2d'),
     speed   = { start: 0.6, decrement: 0.005, min: 0.1 }, // seconds until current piece drops 1 row
-    nx      = 10,                                         // width of tetris court (in blocks)
-    ny      = 20,                                         // height of tetris court (in blocks)
-    nu      = 5                                          // width/height of upcoming preview (in blocks)
+    nx      = 20,                                         // width of tetris court (in blocks)
+    ny      = 80,                                         // height of tetris court (in blocks)
+    nu      = 16                                          // width/height of upcoming preview (in blocks)
 
 
 // Create the variables that will most likely reset for every games
 
-var dx, dy,        // pixel size of a single tetris block
+var height = canvas.offsetHeight,
+    width  = canvas.offsetWidth
+
+var dx = width / nx, dy = height / ny,        // pixel size of a single tetris block
     blocks,        // 2 dimensional array (nx*ny) representing tetris court - either empty block or occupied by a 'piece'
     actions = [],       // queue of user actions (inputs)
     playing = true,       // true|false - game is in progress
@@ -136,12 +139,14 @@ function setNextPiece(piece) {
 // Create the game loop
 
 var last, now;
+
 setRows(12)
-last = Date.now() - (step * 1000)
+setCurrentPiece(next)
+setNextPiece(randomPiece())
+
+last = Date.now()
 function frame() {
   now = Date.now()
-  setCurrentPiece(next)
-  setNextPiece(randomPiece())
   update((now - last) / 1000.0)
   draw()
   last = now
@@ -177,7 +182,7 @@ function update(idt) {
   if (playing) {
     handle(actions.shift())
     dt = dt + idt
-    if (dt > step) {
+    if (dt > (step * 1.5)) {
       dt = dt = step
       drop()
     }
@@ -284,7 +289,6 @@ function draw() {
   drawCourt()
   drawNext()
   drawScore()
-  drawRows()
   ctx.restore()
 }
 
