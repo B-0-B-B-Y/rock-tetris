@@ -365,6 +365,7 @@ function drawBlock(ctx, x, y, color) {
 var minimise = document.getElementById('minimise');
 var maximise = document.getElementById('maximise');
 var close = document.getElementById('close');
+var isMaximised = true;
 
 function setupMinimiseButton(b) {
   b.addEventListener('click', function () {
@@ -374,7 +375,13 @@ function setupMinimiseButton(b) {
 
 function setupMaximiseButton(b) {
   b.addEventListener('click', function () {
-    ipcRenderer.send('maximise', 'Maximise the window')
+    if (isMaximised) {
+      isMaximised = false
+      ipcRenderer.send('maximise', 'Maximise the window')
+    }else {
+      isMaximised = true
+      ipcRenderer.send('unmaximise', 'Un-maximise the window')
+    }
   })
 }
 
