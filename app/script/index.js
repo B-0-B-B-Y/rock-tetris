@@ -1,4 +1,7 @@
+// Allow communication between page and main process
+
 const { ipcRenderer } = require('electron')
+
 // Generate the block that are used in the game and assign unique colours to them
 
 var i = { blocks: [0x0F00, 0x2222, 0x00F0, 0x4444], color: 'cyan'   }
@@ -352,3 +355,32 @@ function drawBlock(ctx, x, y, color) {
   ctx.fillRect(x*dx, y*dy, dx, dy)
   ctx.strokeRect(x*dx, y*dy, dx, dy)
 }
+
+// Add functionality to the control buttons of the window
+
+var minimise = document.getElementById('minimise');
+var maximise = document.getElementById('maximise');
+var close = document.getElementById('close');
+
+function setupMinimiseButton(b) {
+  b.addEventListener('click', function () {
+    ipcRenderer.send('minimise', 'Minimise the window')
+  })
+}
+
+function setupMaximiseButton(b) {
+  b.addEventListener('click', function () {
+    ipcRenderer.send('maximise', 'Maximise the window')
+  })
+}
+
+function setupCloseButton(b) {
+  b.addEventListener('click', function () {
+    ipcRenderer.send('close', 'Close the game')
+  })
+}
+
+
+setupMinimiseButton(minimise)
+setupMaximiseButton(maximise)
+setupCloseButton(close)
