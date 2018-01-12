@@ -14,7 +14,7 @@ var z = { blocks: [0x0C60, 0x4C80, 0xC600, 0x2640], color: 'red'    }
 
 function eachblock(type, x, y, dir, fn) {
   var bit, result, row = 0, col = 0, blocks = type.blocks[dir]
-  for(bit = 0x800  bit > 0  bit = bit >> 1) {
+  for(bit = 0x800;  bit > 0;  bit = bit >> 1) {
     if (blocks & bit) {
       fn(x + col, y + row)
     }
@@ -105,7 +105,8 @@ function getBlock(x,y) {
 }
 
 function setBlock(x,y,type) {
-  blocks[x] = blocks[x] || [] blocks[x][y] = type
+  blocks[x] = blocks[x] || []
+  blocks[x][y] = type
   invalidate()
 }
 
@@ -158,7 +159,8 @@ function keydown(ev) {
 function update(idt) {
   if (playing) {
     handle(actions.shift())
-    dt = dt + idtif (dt > step) {
+    dt = dt + idt
+    if (dt > step) {
       dt = dt = step
       drop()
     }
