@@ -56,7 +56,7 @@ var pieces = []
 function randomPiece() {
   if (pieces.length == 0)
     pieces = [i,i,i,i,j,j,j,j,l,l,l,l,o,o,o,o,s,s,s,s,t,t,t,t,z,z,z,z]
-  var type = pieces.splice(random(0, pieces.length-1), 1)[0]
+  var type = pieces.splice(Math.random(0, pieces.length-1), 1)[0]
   return { type: type, dir: DIR.UP, x: 2, y: 0 }
 }
 
@@ -79,9 +79,9 @@ var KEY     = { ESC: 27, SPACE: 32, LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40 },
 
 var dx, dy,        // pixel size of a single tetris block
     blocks,        // 2 dimensional array (nx*ny) representing tetris court - either empty block or occupied by a 'piece'
-    actions,       // queue of user actions (inputs)
+    actions = [],       // queue of user actions (inputs)
     playing = true,       // true|false - game is in progress
-    dt,            // time since starting this game
+    dt = Date.now() / 1000,            // time since starting this game
     current,       // the current piece
     next,          // the next piece
     score,         // the current score
@@ -135,7 +135,9 @@ function setNextPiece(piece) {
 
 // Create the game loop
 
-var last = now = Date.now()
+var last, now;
+setRows(12)
+last = Date.now() - (step * 1000)
 function frame() {
   now = Date.now()
   update((now - last) / 1000.0)
@@ -322,7 +324,7 @@ function drawScore() {
   }
 }
 
-function drawPiece(ctx, tpye, x, y, dir) {
+function drawPiece(ctx, type, x, y, dir) {
   eachblock(type, x, y, dir, function(x, y) {
     drawBlock(ctx, x, y, type.color)
   })
