@@ -337,8 +337,9 @@ function removeLine(n) {
 }
 
 function dropPiece() {
+  var type = current.type
   eachblock(current.type,current.x,current.y,current.dir,function(x, y) {
-    setBlock(x, y, current.type)
+    setBlock(x, y, type)
     setCurrentPiece(next)
     
   })
@@ -390,8 +391,9 @@ function drawCourt() {
   var x, y, block
   for(y = 0; y < ny; y++) {
     for(x = 0; x < nx; x++) {
-      if (block = getBlock(x, y))
+      if (block = getBlock(x, y)) {
         drawBlock(ctx, x, y, block.color)
+      }
     }
   }
   ctx.rect(0, 0, nx*dx - 1, ny*dy -1)
