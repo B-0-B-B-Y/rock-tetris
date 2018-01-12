@@ -6,34 +6,41 @@
 </head>
 <body>
 
+    <div class="titlebar">
+        <button class="titlebar-button">o</button>
+        <button class="titlebar-button">o</button>
+        <button class="titlebar-button">o</button>
+    </div>
+
     <!-- MAIN CONTENTS -->
+    <div class="game-container">
+        <main class="game-window">
+            <h1 class="game-title"><img src="assets/img/logo.png" alt="" /></h1>
+            <div class="game"></div>
+        </main>
 
-    <main class="game-window">
-        <h1 class="game-title"><img src="assets/img/logo.png" alt="" /></h1>
-        <div class="game"></div>
-    </main>
-
-    <aside class="game-side">
-        <div class="game-next"></div>
-        <div class="game-stats">
-            <div class="stat">
-                <p class="stat_label" id="level">Level</p>
-                <p class="stat_data">0</p>
+        <aside class="game-side">
+            <div class="game-next"></div>
+            <div class="game-stats">
+                <div class="stat">
+                    <p class="stat_label" id="level">Level</p>
+                    <p class="stat_data">0</p>
+                </div>
+                <div class="stat">
+                    <p class="stat_label" id="lines">Lines</p>
+                    <p class="stat_data">0</p>
+                </div>
+                <div class="stat">
+                    <p class="stat_label" id="score">Score</p>
+                    <p class="stat_data">0</p>
+                </div>
             </div>
-            <div class="stat">
-                <p class="stat_label" id="lines">Lines</p>
-                <p class="stat_data">0</p>
+            <div class="game-buttons">
+                <button class="game-button">Quit</button>
+                <button class="game-button">Pause</button>
             </div>
-            <div class="stat">
-                <p class="stat_label" id="score">Score</p>
-                <p class="stat_data">0</p>
-            </div>
-        </div>
-        <div class="game-buttons">
-            <button class="game-button">Quit</button>
-            <button class="game-button">Pause</button>
-        </div>
-    </aside>
+        </aside>
+    </div>
 
     <!-- /MAIN CONTENTS -->
 
