@@ -2,7 +2,7 @@
   "name": "rock-tetris",
   "version": "1.0.0",
   "description": "A rock 'n' roll rebirth of one of the legendary games, tetris",
-  "main": "index.js",
+  "main": "./main.js",
   "scripts": {
     "test": "console.log('no test');"
   },
