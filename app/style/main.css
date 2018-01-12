@@ -89,7 +89,6 @@ p {
     background-size: contain;
     background-position: 50% 90%;
     background-repeat: no-repeat;
-    filter: brightness(80%);
 }
 
 /**** GAME WINDOW ****/
@@ -125,13 +124,12 @@ p {
 .game-wallpaper {
     display: inline-block;
     position: absolute;
-    left: -50%;
+    left: -50px;
+    width: calc(100% + 100px);
     bottom: -12px;
     right: 0;
     height: calc(100% + 24px);
     margin: auto;
-    z-index: -1;
-    filter: blur(8px) brightness(65%);
 }
 #game {
     flex: 1;
