@@ -261,3 +261,22 @@ p {
 .game-button:focus {
     outline: 0;
 }
+
+/**** PARTICLES ****/
+.textcontainer {
+      padding: 40px 0;
+      text-align: center;
+   }
+   .particletext {
+      text-align: center;
+      font-size: 48px;
+      position: relative;
+      &.bubbles {
+         > .particle {
+            opacity: 0;
+            position: absolute;
+            background-color: rgba(33, 150, 243, 0.5);
+            animation: bubbles 3s ease-in infinite;
+            border-radius: 100%;
+         }
+      }
