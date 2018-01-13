@@ -395,7 +395,6 @@ function draw() {
   ctx.save()
   ctx.lineWidth = 1
   ctx.translate(0.5, 0.5)
-  drawRows()
   drawCourt()
   drawNext()
   drawScore()
