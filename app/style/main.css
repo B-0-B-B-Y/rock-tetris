@@ -206,7 +206,8 @@ p {
 }
 #game-next {
     margin: 0 auto;
-    left: 10%;
+    left: 20%;
+    top: 10%;
     display: block;
     height: 120px;
     background-color: rgba(0, 0, 0, 0.3);
