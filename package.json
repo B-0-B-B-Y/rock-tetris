@@ -3,9 +3,14 @@
   "version": "1.0.0",
   "description": "A rock 'n' roll rebirth of one of the legendary games, tetris",
   "main": "./main.js",
+  "build": {
+    "appId": "rock.tetris"
+  },
   "scripts": {
     "test": "console.log('no test');",
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "repository": {
     "type": "git",
@@ -27,6 +32,7 @@
     "electron": "^1.7.10"
   },
   "devDependencies": {
+    "electron-builder": "^19.52.1",
     "electron-packager": "^10.1.1",
     "electron-reload": "^1.2.2"
   }
