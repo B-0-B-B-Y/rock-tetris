@@ -13,25 +13,21 @@ app.on('ready', () => {
     win = new BrowserWindow({
         height: height / 1.5,
         width: width / 2.5,
+        maxHeight: 960, 
+        maxWidth: 1024,
+        minHeight: 720,
+        minWidth: 768,
         frame: false,
         icon: path.join(__dirname, 'app/build/512x512.png')
     })
 
     win.loadURL('file://' + __dirname + '/app/index.html')
 
-    //win.webContents.openDevTools()
+    win.webContents.openDevTools()
 })
 
 ipcMain.on('minimise', (event, arg) => {
   win.minimize()
-})
-
-ipcMain.on('maximise', (event, arg) => {
-  win.maximize()
-})
-
-ipcMain.on('unmaximise', (event, arg) => {
-  win.unmaximize()
 })
 
 ipcMain.on('close', (event, arg) => {

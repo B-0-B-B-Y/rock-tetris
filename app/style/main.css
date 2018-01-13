@@ -153,6 +153,15 @@ p {
     display: inline-block;
     margin: 10%;
 }
+#game-grid {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    z-index: -1;
+}
 #game-overlay {
     position: absolute;
     left: 0;

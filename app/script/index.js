@@ -73,6 +73,8 @@ var KEY     = { ESC: 27, SPACE: 32, LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40 },
     ctx     = canvas.getContext('2d'),
     ucanvas = get('game-next'),
     uctx    = ucanvas.getContext('2d'),
+    gcanvas = get('game-grid'),
+    gctx    = gcanvas.getContext('2d'),
     overlay = get('game-overlay')
     speed   = { start: 0.6, decrement: 0.005, min: 0.1 }, // seconds until current piece drops 1 row
     nx      = 12,                                         // width of tetris court (in blocks)
@@ -92,6 +94,9 @@ var height  = canvas.scrollHeight,
 
 canvas.width = width
 canvas.height = height
+
+gcanvas.width = width
+gcanvas.height = height
 
 ucanvas.width = uwidth
 ucanvas.height = uheight
@@ -422,12 +427,13 @@ function drawCourt() {
 function drawRows() {
   for (var y = 0; y < height; y+=dy) {
     for (var x = 0; x < width; x+=dx) {
-      ctx.strokeStyle="#101010"
-      ctx.rect(x, y, x+dx, y+dy)
-      ctx.stroke()
+      gctx.strokeStyle="#101010"
+      gctx.rect(x, y, x+dx, y+dy)
+      gctx.stroke()
     }
   }
 }
+drawRows()
 
 function drawNext() {
   if (invalid.next) {
@@ -491,25 +497,12 @@ function hideOverlay() {
 // Add functionality to the control buttons of the window
 
 var minimise = document.getElementById('minimise');
-var maximise = document.getElementById('maximise');
 var close = document.getElementById('close');
 var isMaximised = true;
 
 function setupMinimiseButton(b) {
   b.addEventListener('click', function () {
     ipcRenderer.send('minimise', 'Minimise the window')
-  })
-}
-
-function setupMaximiseButton(b) {
-  b.addEventListener('click', function () {
-    if (isMaximised) {
-      isMaximised = false
-      ipcRenderer.send('maximise', 'Maximise the window')
-    }else {
-      isMaximised = true
-      ipcRenderer.send('unmaximise', 'Un-maximise the window')
-    }
   })
 }
 
@@ -521,7 +514,6 @@ function setupCloseButton(b) {
 
 
 setupMinimiseButton(minimise)
-setupMaximiseButton(maximise)
 setupCloseButton(close)
 
 
@@ -565,3 +557,6 @@ jQuery.rnd = function(m,n) {
 }
 
 fire()
+
+// Make Grid same size as game canvas
+$('#game-grid').css({ "width": width, "height": height });
