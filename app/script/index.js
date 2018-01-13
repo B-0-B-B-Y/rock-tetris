@@ -395,7 +395,7 @@ function draw() {
   ctx.save()
   ctx.lineWidth = 1
   ctx.translate(0.5, 0.5)
-  //drawRows()
+  drawRows()
   drawCourt()
   drawNext()
   drawScore()
@@ -423,6 +423,7 @@ function drawCourt() {
 function drawRows() {
   for (var y = 0; y < height; y+=dy) {
     for (var x = 0; x < width; x+=dx) {
+      ctx.strokeStyle="#101010"
       ctx.rect(x, y, x+dx, y+dy)
       ctx.stroke()
     }
