@@ -521,33 +521,37 @@ setupCloseButton(close)
 
 var glob = require('glob')
 var songs = []
-var g = glob("app/assets/sound/*.mp3", (err, matches) => {
-  var result = matches.map(function(d) { return d.replace('app/', ''); });
-  songs = result
+songs = glob("app/assets/sound/*.mp3")
+songs = glob.found
+var result = songs.map(function(d) { return d.replace('app/', ''); });
+songs = result
 
-  // Add the music to the games
 
-  var lastSong = null;
-  var selection = null;
-  //var playlist = ["assets/sound/0.mp3", "assets/sound/1.mp3", "assets/sound/2.mp3", "assets/sound/3.mp3", "assets/sound/4.mp3", "assets/sound/5.mp3", "assets/sound/6.mp3", "assets/sound/7.mp3", "assets/sound/8.mp3",];
-  var player = document.getElementById("audioplayer");
-  player.autoplay=true;
-  player.addEventListener("ended", selectRandom);
+// Add the music to the games
 
-  function selectRandom(){
-      while(selection == lastSong){
-          selection = Math.floor(Math.random() * songs.length);
-      }
-      lastSong = selection;
-      player.src = songs[selection];
 
-  }
+var lastSong = null;
+var selection = null;
+//var playlist = ["assets/sound/0.mp3", "assets/sound/1.mp3", "assets/sound/2.mp3", "assets/sound/3.mp3", "assets/sound/4.mp3", "assets/sound/5.mp3", "assets/sound/6.mp3", "assets/sound/7.mp3", "assets/sound/8.mp3",];
+var player = document.getElementById("audioplayer");
+player.autoplay=true;
+player.addEventListener("ended", selectRandom);
 
-  selectRandom();
-  player.play();
-})
+function selectRandom(){
+    while(selection == lastSong){
+        selection = Math.floor(Math.random() * songs.length);
+    }
+    lastSong = selection;
+    player.src = songs[selection];
+
+}
+
+selectRandom();
+player.play();
+
 
 // Add particle effects to main page
+
 
 function fire() {
    $.each($(".fireeffect"), function(){
