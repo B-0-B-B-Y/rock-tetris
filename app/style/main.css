@@ -264,18 +264,34 @@ p {
 
 /**** PARTICLES ****/
 .textcontainer {
-    padding: 40px 0;
-    text-align: center;
-}
-.particletext {
-    text-align: center;
-    font-size: 48px;
-    position: relative;
-}
-.particletext.bubbles > .particle {
-    opacity: 0;
-    position: absolute;
-    background-color: rgba(33, 150, 243, 0.5);
-    animation: bubbles 3s ease-in infinite;
-    border-radius: 100%;
-}
+      padding: 40px 0;
+      text-align: center;
+   }
+   .particletext {
+      text-align: center;
+      font-size: 48px;
+      position: relative;
+      &.bubbles {
+         > .particle {
+            opacity: 0;
+            position: absolute;
+            background-color: rgba(33, 150, 243, 0.5);
+            animation: bubbles 3s ease-in infinite;
+            border-radius: 100%;
+         }
+      }
+
+  @keyframes bubbles {
+       0% {
+          opacity: 0;
+       }
+       20% {
+        
+          opacity: 1;
+          transform: translate(0, -20%);
+       }
+       100% {
+          opacity: 0;
+          transform: translate(0, -1000%);
+       }
+    }
