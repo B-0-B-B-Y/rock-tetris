@@ -101,7 +101,7 @@ window.addEventListener('keydown', keydown)
 var dx = width / nx, dy = height / ny,        // pixel size of a single tetris block
     blocks = [],        // 2 dimensional array (nx*ny) representing tetris court - either empty block or occupied by a 'piece'
     actions = [],       // queue of user actions (inputs)
-    playing = true,       // true|false - game is in progress
+    playing = false,       // true|false - game is in progress
     dt = Date.now() / 1000,            // time since starting this game
     current,       // the current piece
     next,          // the next piece
@@ -191,13 +191,15 @@ setVisualScore()
 
 last = Date.now()
 function frame() {
+  playing = false
   now = Date.now()
   update((now - last) / 1000.0)
   draw()
   last = now
   requestAnimationFrame(frame, canvas)
 }
-frame()
+showOverlay('Are You Ready?', 1)
+//frame()
 
 // Handle the input from the keyboard
 
@@ -470,9 +472,14 @@ function drawBlock(ctx, x, y, color) {
   ctx.strokeRect(x*dx, y*dy, dx, dy)
 }
 
-function showOverlay(text) {
+function showOverlay(text, start) {
   overlay.className += 'visible'
   get('overlay-text').innerHTML = text || 'GAME OVER'
+  if (start) {
+    get('overlay-retry').innerHTML = 'Press <span class="overlay-spacebar">Spacebar</span>'
+  } else {
+    get('overlay-retry').innerHTML = 'Retry? => Press <span class="overlay-spacebar">Spacebar</span>'
+  }
 }
 
 function hideOverlay() {
