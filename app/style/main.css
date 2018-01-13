@@ -232,6 +232,8 @@ p {
 #game-next {
     margin: 0 auto;
     display: block;
+    margin-top: 16%;
+    margin-right: 4%;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.3);
 }
