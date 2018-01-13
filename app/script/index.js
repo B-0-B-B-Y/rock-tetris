@@ -431,7 +431,7 @@ function drawNext() {
     uctx.save()
     uctx.translate(0.5, 0.5);
     uctx.clearRect(0, 0, uwidth, uheight)
-    drawNextPiece(uctx, next.type, 2.3, 1, next.dir)
+    drawNextPiece(uctx, next.type, 2.4, 0.5, next.dir)
     uctx.restore()
     invalid.next = false
   }
