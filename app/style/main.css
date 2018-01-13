@@ -206,10 +206,8 @@ p {
 }
 #game-next {
     margin: 0 auto;
-    left: 20%;
-    top: 10%;
     display: block;
-    height: 120px;
+    text-align: center;
     background-color: rgba(0, 0, 0, 0.3);
 }
 .game-stats {
@@ -294,3 +292,11 @@ p {
         transform: translate(0, -1000%);
     }
 }
+
+@media screen and (min-width:   0px) and (min-height:   0px)  { #upcoming { width:  50px; height:  50px; }
+    @media screen and (min-width: 400px) and (min-height: 400px)  { #upcoming { width:  75px; height:  75px; }
+    @media screen and (min-width: 500px) and (min-height: 500px)  { #upcoming { width: 100px; height: 100px; }
+    @media screen and (min-width: 600px) and (min-height: 600px)  { #upcoming { width: 125px; height: 125px; }
+    @media screen and (min-width: 700px) and (min-height: 700px)  { #upcoming { width: 150px; height: 150px; }
+    @media screen and (min-width: 800px) and (min-height: 800px)  { #upcoming { width: 175px; height: 175px; }
+    @media screen and (min-width: 900px) and (min-height: 900px)  { #upcoming { width: 200px; height: 200px; }
