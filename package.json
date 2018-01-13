@@ -4,13 +4,18 @@
   "description": "A rock 'n' roll rebirth of one of the legendary games, tetris",
   "main": "./main.js",
   "build": {
-    "appId": "rock.tetris"
+    "appId": "rock.tetris",
+    "win": {
+      "target": "NSIS",
+      "icon": "app/build/icon.ico"
+    }
   },
   "scripts": {
     "test": "console.log('no test');",
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "electron-builder",
+    "dist-win": "electron-builder --win"
   },
   "repository": {
     "type": "git",

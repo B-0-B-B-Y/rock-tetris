@@ -71,3 +71,5 @@ rock-tetris-darwin-x64/
 rock-tetris-win32-ia32/
 
 rock-tetris-win32-x64/
+
+dist/
