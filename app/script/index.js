@@ -517,21 +517,26 @@ setupMinimiseButton(minimise)
 setupCloseButton(close)
 
 
+// Setup music player
+
+var glob = require('glob')
+var songs = glob("/assets/sound/*.mp3")
+
 // Add the music to the games
 
 var lastSong = null;
 var selection = null;
-var playlist = ["assets/sound/0.mp3", "assets/sound/1.mp3", "assets/sound/2.mp3", "assets/sound/3.mp3", "assets/sound/4.mp3", "assets/sound/5.mp3", "assets/sound/6.mp3", "assets/sound/7.mp3", "assets/sound/8.mp3",];
+//var playlist = ["assets/sound/0.mp3", "assets/sound/1.mp3", "assets/sound/2.mp3", "assets/sound/3.mp3", "assets/sound/4.mp3", "assets/sound/5.mp3", "assets/sound/6.mp3", "assets/sound/7.mp3", "assets/sound/8.mp3",];
 var player = document.getElementById("audioplayer");
 player.autoplay=true;
 player.addEventListener("ended", selectRandom);
 
 function selectRandom(){
     while(selection == lastSong){
-        selection = Math.floor(Math.random() * playlist.length);
+        selection = Math.floor(Math.random() * songs.length);
     }
     lastSong = selection;
-    player.src = playlist[selection];
+    player.src = songs[selection];
 
 }
 
