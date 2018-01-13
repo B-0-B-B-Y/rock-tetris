@@ -1,7 +1,7 @@
 const electron = require('electron')
 const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
-
+const fs = require('fs')
 //require('electron-reload')(__dirname)
 
 let win = null;
@@ -13,7 +13,7 @@ app.on('ready', () => {
     win = new BrowserWindow({
         height: height / 1.5,
         width: width / 2.5,
-        maxHeight: 960, 
+        maxHeight: 960,
         maxWidth: 1024,
         minHeight: 720,
         minWidth: 768,

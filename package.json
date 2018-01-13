@@ -33,7 +33,9 @@
     "url": "https://github.com/B-0-B-B-Y/rock-tetris/issues"
   },
   "homepage": "https://github.com/B-0-B-B-Y/rock-tetris#readme",
-  "dependencies": {},
+  "dependencies": {
+    "glob": "^7.1.2"
+  },
   "devDependencies": {
     "electron": "^1.7.10",
     "electron-builder": "^19.52.1",
