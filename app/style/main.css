@@ -275,7 +275,7 @@ p {
 .particletext.bubbles > .particle {
     opacity: 0;
     position: absolute;
-    background-color: rgba(33, 150, 243, 0.5);
+    background-color: rgba(255, 0, 0, 0.7);
     animation: bubbles 3s ease-in infinite;
     border-radius: 100%;
 }
@@ -285,7 +285,7 @@ p {
         opacity: 0;
     }
     20% {
-    
+
         opacity: 1;
         transform: translate(0, -20%);
     }
