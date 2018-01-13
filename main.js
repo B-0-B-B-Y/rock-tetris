@@ -19,7 +19,7 @@ app.on('ready', () => {
 
     win.loadURL('file://' + __dirname + '/app/index.html')
 
-    win.webContents.openDevTools()
+    //win.webContents.openDevTools()
 })
 
 ipcMain.on('minimise', (event, arg) => {

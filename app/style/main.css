@@ -119,9 +119,25 @@ p {
 .logo-wallpaper {
     max-height: 80%;
     margin-right: 12px;
+
+}
+@-webkit-keyframes swinging{
+    0%{-webkit-transform: rotate(10deg);}
+    50%{-webkit-transform: rotate(-5deg)}
+    100%{-webkit-transform: rotate(10deg);}
+}
+
+@keyframes swinging{
+    0%{transform: rotate(10deg);}
+    50%{transform: rotate(-5deg)}
+    100%{transform: rotate(10deg);}
 }
 .logo {
     max-height: 55%;
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+    animation: swinging 5.5s ease-in-out forwards infinite;
 }
 .game-main {
     flex: 1;
