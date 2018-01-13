@@ -427,11 +427,10 @@ function drawRows() {
 
 function drawNext() {
   if (invalid.next) {
-    var padding = 0;
     uctx.save()
     uctx.clearRect(0, 0, uwidth, uheight)
     uctx.translate((0.5 * uwidth) - (next.type.size * dx / 2), (0.5 * uheight) - (next.type.size * dy / 2))
-    drawNextPiece(uctx, next.type, padding, padding, next.dir)
+    drawNextPiece(uctx, next.type, 0, 0, next.dir)
     uctx.restore()
     invalid.next = false
   }
