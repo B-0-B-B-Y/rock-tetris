@@ -23,9 +23,10 @@
     "url": "https://github.com/B-0-B-B-Y/rock-tetris/issues"
   },
   "homepage": "https://github.com/B-0-B-B-Y/rock-tetris#readme",
-  "dependencies": {},
+  "dependencies": {
+    "electron": "^1.7.10"
+  },
   "devDependencies": {
-    "electron": "^1.7.10",
     "electron-packager": "^10.1.1",
     "electron-reload": "^1.2.2"
   }
