@@ -189,16 +189,16 @@ setCurrentPiece()
 setNextPiece(randomPiece())
 setVisualScore()
 
-last = Date.now()
+showOverlay('Are You Ready?', 1)
+
 function frame() {
-  playing = false
   now = Date.now()
   update((now - last) / 1000.0)
   draw()
   last = now
   requestAnimationFrame(frame, canvas)
 }
-showOverlay('Are You Ready?', 1)
+
 //frame()
 
 // Handle the input from the keyboard
@@ -225,10 +225,12 @@ function keydown(ev) {
 
 // Define play() and lose() functions
 
+last = Date.now()
 function play() {
   //hide('start')
   reset()
   playing = true
+  frame()
 }
 
 function lose(text) {
