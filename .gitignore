@@ -57,3 +57,17 @@ typings/
 # dotenv environment variables file
 .env
 
+
+rock-tetris-linux-x64/
+
+rock-tetris-mas-x64/
+
+rock-tetris-linux-ia32/
+
+rock-tetris-linux-armv7l/
+
+rock-tetris-darwin-x64/
+
+rock-tetris-win32-ia32/
+
+rock-tetris-win32-x64/
