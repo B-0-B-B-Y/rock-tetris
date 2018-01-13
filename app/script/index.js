@@ -101,7 +101,7 @@ window.addEventListener('keydown', keydown)
 var dx = width / nx, dy = height / ny,        // pixel size of a single tetris block
     blocks = [],        // 2 dimensional array (nx*ny) representing tetris court - either empty block or occupied by a 'piece'
     actions = [],       // queue of user actions (inputs)
-    playing = true,       // true|false - game is in progress
+    playing = false,       // true|false - game is in progress
     dt = Date.now() / 1000,            // time since starting this game
     current,       // the current piece
     next,          // the next piece
