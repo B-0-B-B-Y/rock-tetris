@@ -205,7 +205,8 @@ p {
     display: inline-block;
 }
 #game-next {
-    margin: 4px;
+    margin: 0 auto;
+    display: block;
     height: 120px;
     background-color: rgba(0, 0, 0, 0.3);
 }
