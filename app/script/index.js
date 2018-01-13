@@ -538,8 +538,8 @@ player.play();
 
 // Add particle effects to main page
 
-function bubbles() {
-   $.each($(".particletext.bubbles"), function(){
+function fire() {
+   $.each($(".fireeffect"), function(){
       var bubblecount = ($(this).width()/50)*10;
       for(var i = 0; i <= bubblecount; i++) {
          var size = ($.rnd(40,80)/10);
@@ -554,4 +554,4 @@ jQuery.rnd = function(m,n) {
       return Math.floor( Math.random() * (n - m + 1) ) + m;
 }
 
-bubbles()
+fire()

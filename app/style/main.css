@@ -263,24 +263,21 @@ p {
 }
 
 /**** PARTICLES ****/
-.textcontainer {
-    padding: 40px 0;
-    text-align: center;
+.fireeffect {
+    position: absolute;
+    right: -20px;
+    bottom: 0;
+    width: 50%;
 }
-.particletext {
-    text-align: center;
-    font-size: 48px;
-    position: relative;
-}
-.particletext.bubbles > .particle {
+.fireeffect > .particle {
     opacity: 0;
     position: absolute;
     background-color: rgba(255, 0, 0, 0.7);
-    animation: bubbles 3s ease-in infinite;
+    animation: fireeffect 3s ease-in infinite;
     border-radius: 100%;
 }
 
-@keyframes bubbles {
+@keyframes fireeffect {
     0% {
         opacity: 0;
     }
