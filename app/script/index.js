@@ -520,8 +520,10 @@ setupCloseButton(close)
 // Setup music player
 
 var glob = require('glob')
-var songs = glob("/assets/sound/*.mp3")
-
+var songs = []
+songs = glob("app/assets/sound/*.mp3")
+var result = songs.map(function(d) { return d.replace('app/', ''); });
+songs = result
 // Add the music to the games
 
 var lastSong = null;
