@@ -529,7 +529,6 @@ var g = glob("app/assets/sound/*.mp3", (err, matches) => {
 
   var lastSong = null;
   var selection = null;
-  //var playlist = ["assets/sound/0.mp3", "assets/sound/1.mp3", "assets/sound/2.mp3", "assets/sound/3.mp3", "assets/sound/4.mp3", "assets/sound/5.mp3", "assets/sound/6.mp3", "assets/sound/7.mp3", "assets/sound/8.mp3",];
   var player = document.getElementById("audioplayer");
   player.autoplay=true;
   player.addEventListener("ended", selectRandom);
@@ -547,7 +546,9 @@ var g = glob("app/assets/sound/*.mp3", (err, matches) => {
   player.play();
 })
 
+
 // Add particle effects to main page
+
 
 function fire() {
    $.each($(".fireeffect"), function(){
