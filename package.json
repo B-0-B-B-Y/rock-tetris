@@ -12,6 +12,9 @@
     "win": {
       "target": "NSIS",
       "icon": "app/build/icon.ico"
+    },
+    "linux": {
+      "icon": "app/build/"
     }
   },
   "scripts": {
