@@ -1,4 +1,6 @@
-# rock-tetris
+<img src="https://wallpapercave.com/wp/ru3dSmr.jpg">
+
+# Rock Tetris!
 A rock 'n' roll rebirth of one of the legendary games, tetris.
 
 # The classic, reimagined.
