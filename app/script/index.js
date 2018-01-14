@@ -517,34 +517,141 @@ setupMinimiseButton(minimise)
 setupCloseButton(close)
 
 
+// Setup playlist
+
+var playlist = ["assets/sound/13.Pat Benatar - We Live For Love.mp3",
+"assets/sound/02.Status Quo - Rockin' All Over The World.mp3",
+"assets/sound/07.Grand Funk Railroad - We're An American Band.mp3",
+"assets/sound/02.Rainbow - Man On The Silver Mountain.mp3",
+"assets/sound/02.Rainbow - Long Live Rock 'N' Roll.mp3",
+"assets/sound/19.Paul Stanley - Tonight You Belong To Me.mp3",
+"assets/sound/8.mp3",
+"assets/sound/09.Uriah Heep - Easy Livin'.mp3",
+"assets/sound/0.mp3",
+"assets/sound/14.Peter Frampton - Baby, I Love Your Way (Live).mp3",
+"assets/sound/17.The Motors - Airport.mp3",
+"assets/sound/16.Raspberries - Go All The Way.mp3",
+"assets/sound/17.Player - Baby Come Back.mp3",
+"assets/sound/16.Pat Benatar - Heartbreaker.mp3",
+"assets/sound/11.Starz - Cherry Baby.mp3",
+"assets/sound/19.Hudson-Ford - Pick Up The Pieces.mp3",
+"assets/sound/18.Little River Band - Reminiscing.mp3",
+"assets/sound/11.Free - I'll Be Creepin'.mp3",
+"assets/sound/07.Heart - Crazy On You.mp3",
+"assets/sound/04.Thin Lizzy - The Boys Are Back In Town.mp3",
+"assets/sound/03.Styx - Blue Collar Man (Long Nights).mp3",
+"assets/sound/20.Sparks - Amateur Hour.mp3",
+"assets/sound/11.Sparks - This Town Ain't Big Enough For The Both Of Us.mp3",
+"assets/sound/09.Ace Frehley - New York Groove.mp3",
+"assets/sound/06.Angel - Don't Leave Me Lonely.mp3",
+"assets/sound/06.Bachman Turner Overdrive - Roll On Down The Highway.mp3",
+"assets/sound/02.Rainbow - Since You Been Gone.mp3",
+"assets/sound/12.10cc - Art For Art's Sake.mp3",
+"assets/sound/07.Saga - How Long.mp3",
+"assets/sound/10.Spooky Tooth - Better By You, Better Than Me.mp3",
+"assets/sound/14.10cc - The Things We Do For Love.mp3",
+"assets/sound/05.April Wine - Get Ready For Love.mp3",
+"assets/sound/20.10cc - I Bought A Flat Guitar Tutor.mp3",
+"assets/sound/03.Joe Walsh - Turn To Stone.mp3",
+"assets/sound/19.Sparks - Never Turn Your Back On Mother Earth.mp3",
+"assets/sound/01.Stealers Wheel - Stuck In The Middle With You.mp3",
+"assets/sound/09.Rod Stewart - Every Picture Tells A Story.mp3",
+"assets/sound/12.New York Dolls - Jet Boy.mp3",
+"assets/sound/10.Status Quo - Mystery Song.mp3",
+"assets/sound/12.April Wine - I Like To Rock.mp3",
+"assets/sound/01.Budgie - In For The Kill.mp3",
+"assets/sound/15.Gene Simmons - Radioactive.mp3",
+"assets/sound/2.mp3",
+"assets/sound/18.Wishbone Ash - Jail Bait.mp3",
+"assets/sound/09.Gary Moore - Don't Believe A Word.mp3",
+"assets/sound/01.Lynyrd Skynyrd - Free Bird.mp3",
+"assets/sound/20.Buddy Miles - Dreams.mp3",
+"assets/sound/06.Peter Frampton - Show Me The Way (Live).mp3",
+"assets/sound/1.mp3",
+"assets/sound/08.Diesel - Sausolito Summernight.mp3",
+"assets/sound/19.Lynyrd Skynyrd - Sweet Home Alabama.mp3",
+"assets/sound/03.Status Quo - Caroline.mp3",
+"assets/sound/02.Status Quo - Wild Side Of Life.mp3",
+"assets/sound/01.Bachman Turner Overdrive - You Ain't Seen Nothing Yet.mp3",
+"assets/sound/6.mp3",
+"assets/sound/21.Isaac Hayes - Theme From Shaft.mp3",
+"assets/sound/14.The Motors - Forget About You.mp3",
+"assets/sound/7.mp3",
+"assets/sound/06.Joe Walsh - Walk Away (Live).mp3",
+"assets/sound/04.10cc - Get It While You Can.mp3",
+"assets/sound/13.Sammy Hagar - I've Done Everything For You.mp3",
+"assets/sound/12.Raspberries - Overnight Sensation.mp3",
+"assets/sound/04.Free - All Right Now.mp3",
+"assets/sound/11.Pat Travers - Life In London.mp3",
+"assets/sound/05.Nils Lofgren - Back It Up.mp3",
+"assets/sound/06.Budgie - Bread Fan.mp3",
+"assets/sound/09.Iggy Pop - Lust For Life.mp3",
+"assets/sound/16.Atlanta Rhythm Section - Champagne Jam.mp3",
+"assets/sound/15.38 Special - Rockin' Into The Night.mp3",
+"assets/sound/15.Thin Lizzy - Sarah.mp3",
+"assets/sound/19.10cc - Dreadlock Holiday.mp3",
+"assets/sound/07.Wishbone Ash - Blowin' Free.mp3",
+"assets/sound/4.mp3",
+"assets/sound/14.T. Rex - One Inch Rock.mp3",
+"assets/sound/12.The Tubes - Prime Time.mp3",
+"assets/sound/03.Status Quo - Paper Plane.mp3",
+"assets/sound/07.Rod Stewart - Maggie May.mp3",
+"assets/sound/15.Pablo Cruise - Love Will Find A Way.mp3",
+"assets/sound/08.Atlanta Rhythm Section - So Into You.mp3",
+"assets/sound/05.Kiss - Do You Love Me.mp3",
+"assets/sound/11.Nazareth - This Flight Tonight.mp3",
+"assets/sound/10.The Knack - My Sharona.mp3",
+"assets/sound/17.Strawbs - Lay Down.mp3",
+"assets/sound/13.Robert Palmer - Bad Case Of Loving You (Doctor Doctor).mp3",
+"assets/sound/13.Bob Welch - Sentimental Lady.mp3",
+"assets/sound/08.Gary Moore - Back On The Streets.mp3",
+"assets/sound/05.Kiss - Rock And Roll All Nite.mp3",
+"assets/sound/16.Sparks - Something For The Girl With Everything.mp3",
+"assets/sound/15.Buggles - Video Killed The Radio Star.mp3",
+"assets/sound/05.Bachman Turner Overdrive - Takin' Care Of Business.mp3",
+"assets/sound/16.Lynyrd Skynyrd - That Smell.mp3",
+"assets/sound/18.10cc - Good Morning Judge.mp3",
+"assets/sound/20.Free - Only My Soul.mp3",
+"assets/sound/5.mp3",
+"assets/sound/08.Cozy Powell - Theme One.mp3",
+"assets/sound/04.Thin Lizzy - Whiskey In The Jar.mp3",
+"assets/sound/08.T. Rex - Get It On.mp3",
+"assets/sound/20.Thin Lizzy - Waiting For An Alibi.mp3",
+"assets/sound/04.Thin Lizzy - Emerald.mp3",
+"assets/sound/3.mp3",
+"assets/sound/18.James Gang - Funk #49.mp3",
+"assets/sound/01.Kiss - Detroit Rock City.mp3",
+"assets/sound/10.The Runaways - Cherry Bomb.mp3",
+"assets/sound/17.Nils Lofgren - Keith Don't Go (Ode To The Glimmer Twin).mp3",
+"assets/sound/18.Free - My Brother Jake.mp3",
+"assets/sound/10.Styx - Come Sail Away.mp3",
+"assets/sound/13.Iggy Pop - The Passenger.mp3",
+"assets/sound/03.Free - Wishing Well.mp3",
+"assets/sound/14.Joe Walsh - Rocky Mountain Way.mp3",
+"assets/sound/17.The Allman Brothers Band - Statesboro Blues.mp3"]
+
+
 // Setup music player
 
-var glob = require('glob')
-var songs = []
-var g = glob("app/assets/sound/*.mp3", (err, matches) => {
-  var result = matches.map(function(d) { return d.replace('app/', ''); });
-  songs = result
 
-  // Add the music to the games
+var lastSong = null;
+var selection = null;
+var player = document.getElementById("audioplayer"); // Get Audio Element
+player.autoplay=true;
+player.addEventListener("ended", selectRandom); // Run function when song ends
 
-  var lastSong = null;
-  var selection = null;
-  var player = document.getElementById("audioplayer");
-  player.autoplay=true;
-  player.addEventListener("ended", selectRandom);
+function selectRandom(){
+    while(selection == lastSong){ // Repeat until different song is selected
+        selection = Math.floor(Math.random() * playlist.length);
+    }
+    lastSong = selection; // Remember last song
+    player.src = playlist[selection]; // Tell HTML the location of the new Song
 
-  function selectRandom(){
-      while(selection == lastSong){
-          selection = Math.floor(Math.random() * songs.length);
-      }
-      lastSong = selection;
-      player.src = songs[selection];
+}
 
-  }
+selectRandom(); // Select initial song
+player.play(); // Start Song
 
-  selectRandom();
-  player.play();
-})
 
 
 // Add particle effects to main page
