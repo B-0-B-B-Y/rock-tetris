@@ -5,6 +5,10 @@
   "main": "./main.js",
   "build": {
     "appId": "rock.tetris",
+    "mac": {
+      "category": "Games",
+      "icon": "app/build/icon.icns"
+    },
     "win": {
       "target": "NSIS",
       "icon": "app/build/icon.ico"
