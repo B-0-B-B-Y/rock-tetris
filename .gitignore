@@ -73,3 +73,5 @@ rock-tetris-win32-ia32/
 rock-tetris-win32-x64/
 
 dist/
+
+app/assets/sound/
